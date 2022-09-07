@@ -1,0 +1,16 @@
+{
+  "name": "just-frankfurter",
+  "version": "1.0.1-alpha.0",
+  "description": "just-frankfurter",
+  "main": "index.js",
+  "repository": "https://github.com/flamrdevs/just-frankfurter.git",
+  "author": "flamrdevs <flamrdevs@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/ui": "^0.18.0",
+    "concurrently": "^7.2.2",
+    "microbundle": "^0.15.0",
+    "rimraf": "^3.0.2",
+    "vitest": "^0.18.0"
+  }
+}
