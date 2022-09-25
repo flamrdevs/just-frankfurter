@@ -2,15 +2,44 @@
   "name": "just-frankfurter",
   "version": "1.0.1-alpha.0",
   "description": "just-frankfurter",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "exports": {
+    "require": "./dist/index.js",
+    "default": "./dist/index.modern.mjs"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "test:dev": "vitest --ui",
+    "test:prod": "vitest run",
+    "test": "yarn run test:prod",
+    "watch:prod": "microbundle watch --format modern,esm,cjs",
+    "watch:dev": "microbundle watch --format modern,esm,cjs --compress false",
+    "watch": "concurrently \"yarn run watch:dev\" \"yarn run test:dev\"",
+    "build:prod": "microbundle --format modern,esm,cjs --sourcemap false",
+    "build:dev": "microbundle --format modern,esm,cjs --sourcemap false --compress false",
+    "build": "yarn run clean && yarn run test && yarn run build:prod",
+    "dev": "yarn run watch",
+    "clean": "rimraf dist"
+  },
   "repository": "https://github.com/flamrdevs/just-frankfurter.git",
   "author": "flamrdevs <flamrdevs@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "javascript-yesterday": "^1.1.0",
+    "ky": "^0.31.3",
+    "qs": "^6.11.0"
+  },
   "devDependencies": {
-    "@vitest/ui": "^0.18.0",
+    "@vitest/ui": "^0.23.1",
     "concurrently": "^7.2.2",
+    "jsdom": "^20.0.0",
     "microbundle": "^0.15.0",
+    "release-it": "^15.4.2",
     "rimraf": "^3.0.2",
-    "vitest": "^0.18.0"
+    "vitest": "^0.23.1"
   }
 }
