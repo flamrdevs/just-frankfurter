@@ -23,7 +23,8 @@
     "build:dev": "microbundle --format modern,esm,cjs --sourcemap false --compress false",
     "build": "yarn run clean && yarn run test && yarn run build:prod",
     "dev": "yarn run watch",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "release": "release-it"
   },
   "repository": "https://github.com/flamrdevs/just-frankfurter.git",
   "author": "flamrdevs <flamrdevs@gmail.com>",
